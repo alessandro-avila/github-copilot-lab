@@ -1,0 +1,43 @@
+// MCP servers for VS Code, scoped to this workspace.
+//
+// This file is JSONC — comments are allowed here. The sibling `.mcp.json` at the
+// repo root is strict JSON and is what Copilot CLI and the Copilot app read.
+//
+// Both servers below are HTTP and need no local install:
+//   microsoft-learn  no authentication at all
+//   github           OAuth, VS Code prompts you on first use
+{
+  "servers": {
+    "microsoft-learn": {
+      "type": "http",
+      "url": "https://learn.microsoft.com/api/mcp"
+    },
+    "github": {
+      "type": "http",
+      "url": "https://api.githubcopilot.com/mcp"
+    }
+
+    // ── Secrets pattern ──────────────────────────────────────────────────
+    // Left commented out on purpose so the demo has no live dependency.
+    // Never hardcode a key here. Declare an input and reference it instead;
+    // VS Code prompts once and stores the value securely.
+    //
+    // "some-private-api": {
+    //   "type": "stdio",
+    //   "command": "npx",
+    //   "args": ["-y", "@example/mcp-server"],
+    //   "env": {
+    //     "API_KEY": "${input:api-key}"
+    //   }
+    // }
+  },
+
+  "inputs": [
+    // {
+    //   "id": "api-key",
+    //   "type": "promptString",
+    //   "description": "API key for the private MCP server",
+    //   "password": true
+    // }
+  ]
+}

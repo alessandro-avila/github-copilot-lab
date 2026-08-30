@@ -1,0 +1,11 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "copilot-lab-plugin",
+  "version": "1.0.0",
+  "description": "Reference plugin for the Copilot upskilling lab. Shows how skills, MCP servers and Copilot-specific components are packaged together.",
+  "license": "MIT",
+  "keywords": ["lab", "demo", "release-notes", "training"],
+  "author": {
+    "name": "Copilot Lab"
+  }
+}
