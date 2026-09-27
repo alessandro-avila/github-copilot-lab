@@ -9,6 +9,14 @@ You describe what legacy C code does today in clean, readable Given/When/Then sp
 | Spec rules | [How to write a spec you can test](../../legacy-c/specs/README.md): read it first |
 | Copilot | Agent mode, the prompt files `/spec-from-code` and `/tests-from-spec`, the spec and C instructions, and the **Spec reviewer** agent |
 
+## How the sorter works
+
+The program in `legacy-c/` controls a small parcel sorter: a scanner reads each parcel's barcode, and a diverter pushes the parcel off the belt into the chute for its destination. This animation replays one run of `sorter_app` with the four test parcels in [hw.c](../../legacy-c/hw.c):
+
+![Animation of one sorter run. The scanner reads parcel 30123458, which goes into chute 3. It fails to read the next parcel twice, then reads 10123454, which goes into chute 1. It cannot read a parcel with a damaged label, so the sorter gives up and that parcel runs on to the end of the belt. Parcel 55123457 has no route and goes into chute 9.](sorter-run.svg)
+
+The animation shows a run before 18:00. From 18:00, the sorter puts every parcel it reads into chute 8. To see the same run as console output, [build and run](../../legacy-c/README.md#build-and-run) `sorter_app`.
+
 ## Before you start
 
 | Where | Build and run the tests |

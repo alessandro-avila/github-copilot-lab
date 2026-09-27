@@ -1,0 +1,337 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="212" viewBox="0 0 800 212" role="img" aria-labelledby="title desc">
+<!--
+  One run of sorter_app with the four stand-in parcels in legacy-c/hw.c, as a
+  25-second loop. Every moving part has its own CSS keyframes, generated from a
+  timeline in seconds. People who switch animations off see one still frame:
+  parcel 30123458 at the scanner.
+-->
+<title id="title">One run of the parcel sorter</title>
+<desc id="desc">Four parcels pass the scanner on a conveyor belt. Parcel 30123458 goes into chute 3. Parcel 10123454 is read on the third try and goes into chute 1. A parcel with a damaged label cannot be read, so the sorter gives up and the parcel runs on to the end of the belt. Parcel 55123457 has no route and goes into chute 9.</desc>
+<style>
+svg { font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif; }
+.label { font-size: 12px; font-weight: 700; letter-spacing: 1.2px; text-anchor: middle; }
+.chute { font-size: 12px; fill: #e2e8f0; text-anchor: middle; }
+.end { font-size: 12px; fill: #8b9bb3; }
+.status { font-size: 11px; font-weight: 600; }
+.line1 { font-size: 13px; font-weight: 600; fill: #e2e8f0; }
+.line2 { font-size: 13px; fill: #cbd5e1; }
+
+.p1 { transform: translate(194px, 96px); }
+.p2, .p3, .p4 { transform: translate(48px, 96px); }
+.p3, .p4, .beam-fail, .no-read, .code2, .code4, .glow, .push1, .push3, .push9 { opacity: 0; }
+.beam-ok { opacity: 0.4; }
+.c2a { opacity: 0; }
+.c2b { opacity: 0; }
+.c3a { opacity: 0; }
+.c3b { opacity: 0; }
+.c4 { opacity: 0; }
+.c5 { opacity: 0; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .p1 { animation: p1 25s linear infinite; }
+  .p2 { animation: p2 25s linear infinite; }
+  .p3 { animation: p3 25s linear infinite; }
+  .p4 { animation: p4 25s linear infinite; }
+  .beam-ok { animation: beam-ok 25s linear infinite; }
+  .beam-fail { animation: beam-fail 25s linear infinite; }
+  .no-read { animation: no-read 25s linear infinite; }
+  .code1 { animation: code1 25s linear infinite; }
+  .code2 { animation: code2 25s linear infinite; }
+  .code4 { animation: code4 25s linear infinite; }
+  .glow { animation: glow 25s linear infinite; }
+  .push1 { animation: push1 25s linear infinite; }
+  .push3 { animation: push3 25s linear infinite; }
+  .push9 { animation: push9 25s linear infinite; }
+  .c1 { animation: c1 25s linear infinite; }
+  .c2a { animation: c2a 25s linear infinite; }
+  .c2b { animation: c2b 25s linear infinite; }
+  .c3a { animation: c3a 25s linear infinite; }
+  .c3b { animation: c3b 25s linear infinite; }
+  .c4 { animation: c4 25s linear infinite; }
+  .c5 { animation: c5 25s linear infinite; }
+}
+@keyframes p1 {
+  0% { transform: translate(48px, 96px); opacity: 0 }
+  1.2% { transform: translate(48px, 96px); opacity: 1 }
+  2% { transform: translate(48px, 96px); opacity: 1 }
+  5.6% { transform: translate(194px, 96px); opacity: 1 }
+  8.8% { transform: translate(194px, 96px); opacity: 1 }
+  15.6% { transform: translate(479px, 96px); opacity: 1 }
+  16.2% { transform: translate(479px, 96px); opacity: 1 }
+  18% { transform: translate(479px, 146px); opacity: 1 }
+  96% { transform: translate(479px, 146px); opacity: 1 }
+  97.6% { transform: translate(479px, 146px); opacity: 0 }
+  100% { transform: translate(479px, 146px); opacity: 0 }
+}
+@keyframes p2 {
+  0% { transform: translate(48px, 96px); opacity: 0 }
+  4% { transform: translate(48px, 96px); opacity: 0 }
+  5.2% { transform: translate(48px, 96px); opacity: 1 }
+  18.4% { transform: translate(48px, 96px); opacity: 1 }
+  22% { transform: translate(194px, 96px); opacity: 1 }
+  31.6% { transform: translate(194px, 96px); opacity: 1 }
+  36.4% { transform: translate(389px, 96px); opacity: 1 }
+  37% { transform: translate(389px, 96px); opacity: 1 }
+  38.8% { transform: translate(389px, 146px); opacity: 1 }
+  96% { transform: translate(389px, 146px); opacity: 1 }
+  97.6% { transform: translate(389px, 146px); opacity: 0 }
+  100% { transform: translate(389px, 146px); opacity: 0 }
+}
+@keyframes p3 {
+  0% { transform: translate(48px, 96px); opacity: 0 }
+  22.8% { transform: translate(48px, 96px); opacity: 0 }
+  24% { transform: translate(48px, 96px); opacity: 1 }
+  39.2% { transform: translate(48px, 96px); opacity: 1 }
+  42.8% { transform: translate(194px, 96px); opacity: 1 }
+  53.2% { transform: translate(194px, 96px); opacity: 1 }
+  63.6% { transform: translate(630px, 96px); opacity: 1 }
+  96% { transform: translate(630px, 96px); opacity: 1 }
+  97.6% { transform: translate(630px, 96px); opacity: 0 }
+  100% { transform: translate(630px, 96px); opacity: 0 }
+}
+@keyframes p4 {
+  0% { transform: translate(48px, 96px); opacity: 0 }
+  43.6% { transform: translate(48px, 96px); opacity: 0 }
+  44.8% { transform: translate(48px, 96px); opacity: 1 }
+  64% { transform: translate(48px, 96px); opacity: 1 }
+  67.6% { transform: translate(194px, 96px); opacity: 1 }
+  71.2% { transform: translate(194px, 96px); opacity: 1 }
+  80% { transform: translate(569px, 96px); opacity: 1 }
+  80.6% { transform: translate(569px, 96px); opacity: 1 }
+  82.4% { transform: translate(569px, 146px); opacity: 1 }
+  96% { transform: translate(569px, 146px); opacity: 1 }
+  97.6% { transform: translate(569px, 146px); opacity: 0 }
+  100% { transform: translate(569px, 146px); opacity: 0 }
+}
+@keyframes beam-ok {
+  0% { opacity: 0 }
+  5.88% { opacity: 0 }
+  6.2% { opacity: 0.4 }
+  7.8% { opacity: 0.4 }
+  8.12% { opacity: 0 }
+  28.08% { opacity: 0 }
+  28.4% { opacity: 0.4 }
+  30% { opacity: 0.4 }
+  30.32% { opacity: 0 }
+  68.08% { opacity: 0 }
+  68.4% { opacity: 0.4 }
+  70% { opacity: 0.4 }
+  70.32% { opacity: 0 }
+  100% { opacity: 0 }
+}
+@keyframes beam-fail {
+  0% { opacity: 0 }
+  22.48% { opacity: 0 }
+  22.8% { opacity: 0.45 }
+  24.4% { opacity: 0.45 }
+  24.72% { opacity: 0 }
+  25.28% { opacity: 0 }
+  25.6% { opacity: 0.45 }
+  27.2% { opacity: 0.45 }
+  27.52% { opacity: 0 }
+  43.28% { opacity: 0 }
+  43.6% { opacity: 0.45 }
+  45.2% { opacity: 0.45 }
+  45.52% { opacity: 0 }
+  46.08% { opacity: 0 }
+  46.4% { opacity: 0.45 }
+  48% { opacity: 0.45 }
+  48.32% { opacity: 0 }
+  48.88% { opacity: 0 }
+  49.2% { opacity: 0.45 }
+  50.8% { opacity: 0.45 }
+  51.12% { opacity: 0 }
+  100% { opacity: 0 }
+}
+@keyframes no-read {
+  0% { opacity: 0 }
+  22.48% { opacity: 0 }
+  22.8% { opacity: 1 }
+  24.4% { opacity: 1 }
+  24.72% { opacity: 0 }
+  25.28% { opacity: 0 }
+  25.6% { opacity: 1 }
+  27.2% { opacity: 1 }
+  27.52% { opacity: 0 }
+  43.28% { opacity: 0 }
+  43.6% { opacity: 1 }
+  45.2% { opacity: 1 }
+  45.52% { opacity: 0 }
+  46.08% { opacity: 0 }
+  46.4% { opacity: 1 }
+  48% { opacity: 1 }
+  48.32% { opacity: 0 }
+  48.88% { opacity: 0 }
+  49.2% { opacity: 1 }
+  50.8% { opacity: 1 }
+  51.12% { opacity: 0 }
+  100% { opacity: 0 }
+}
+@keyframes code1 {
+  0% { opacity: 0 }
+  5.88% { opacity: 0 }
+  6.2% { opacity: 1 }
+  8.8% { opacity: 1 }
+  9.12% { opacity: 0 }
+  100% { opacity: 0 }
+}
+@keyframes code2 {
+  0% { opacity: 0 }
+  28.08% { opacity: 0 }
+  28.4% { opacity: 1 }
+  31.6% { opacity: 1 }
+  31.92% { opacity: 0 }
+  100% { opacity: 0 }
+}
+@keyframes code4 {
+  0% { opacity: 0 }
+  68.08% { opacity: 0 }
+  68.4% { opacity: 1 }
+  71.2% { opacity: 1 }
+  71.52% { opacity: 0 }
+  100% { opacity: 0 }
+}
+@keyframes glow {
+  0% { opacity: 0 }
+  15.48% { opacity: 0 }
+  15.8% { opacity: 0.3 }
+  18.2% { opacity: 0.3 }
+  18.52% { opacity: 0 }
+  36.28% { opacity: 0 }
+  36.6% { opacity: 0.3 }
+  39% { opacity: 0.3 }
+  39.32% { opacity: 0 }
+  79.88% { opacity: 0 }
+  80.2% { opacity: 0.3 }
+  82.6% { opacity: 0.3 }
+  82.92% { opacity: 0 }
+  100% { opacity: 0 }
+}
+@keyframes push1 {
+  0% { opacity: 0 }
+  36.28% { opacity: 0 }
+  36.6% { opacity: 1 }
+  39% { opacity: 1 }
+  39.32% { opacity: 0 }
+  100% { opacity: 0 }
+}
+@keyframes push3 {
+  0% { opacity: 0 }
+  15.48% { opacity: 0 }
+  15.8% { opacity: 1 }
+  18.2% { opacity: 1 }
+  18.52% { opacity: 0 }
+  100% { opacity: 0 }
+}
+@keyframes push9 {
+  0% { opacity: 0 }
+  79.88% { opacity: 0 }
+  80.2% { opacity: 1 }
+  82.6% { opacity: 1 }
+  82.92% { opacity: 0 }
+  100% { opacity: 0 }
+}
+@keyframes c1 {
+  0% { opacity: 0 }
+  5.6% { opacity: 0 }
+  6.2% { opacity: 1 }
+  21% { opacity: 1 }
+  21.6% { opacity: 0 }
+  100% { opacity: 0 }
+}
+@keyframes c2a {
+  0% { opacity: 0 }
+  22.2% { opacity: 0 }
+  22.8% { opacity: 1 }
+  27.4% { opacity: 1 }
+  28% { opacity: 0 }
+  100% { opacity: 0 }
+}
+@keyframes c2b {
+  0% { opacity: 0 }
+  28% { opacity: 0 }
+  28.6% { opacity: 1 }
+  41.2% { opacity: 1 }
+  41.8% { opacity: 0 }
+  100% { opacity: 0 }
+}
+@keyframes c3a {
+  0% { opacity: 0 }
+  43% { opacity: 0 }
+  43.6% { opacity: 1 }
+  51.8% { opacity: 1 }
+  52.4% { opacity: 0 }
+  100% { opacity: 0 }
+}
+@keyframes c3b {
+  0% { opacity: 0 }
+  52.6% { opacity: 0 }
+  53.2% { opacity: 1 }
+  64.8% { opacity: 1 }
+  65.4% { opacity: 0 }
+  100% { opacity: 0 }
+}
+@keyframes c4 {
+  0% { opacity: 0 }
+  67.8% { opacity: 0 }
+  68.4% { opacity: 1 }
+  82.8% { opacity: 1 }
+  83.4% { opacity: 0 }
+  100% { opacity: 0 }
+}
+@keyframes c5 {
+  0% { opacity: 0 }
+  83.6% { opacity: 0 }
+  84.2% { opacity: 1 }
+  95.4% { opacity: 1 }
+  96% { opacity: 0 }
+  100% { opacity: 0 }
+}
+</style>
+  <rect x="8" y="8" width="784" height="196" rx="16" fill="#111a2b" stroke="#2a3a52" stroke-width="1.5"/>
+  <rect x="40" y="92" width="620" height="30" rx="15" fill="#1e2b3f"/>
+
+  <line x1="205" y1="54" x2="205" y2="92" stroke="#2dd4bf" stroke-width="2"/>
+  <rect x="150" y="24" width="110" height="30" rx="8" fill="#0d1f26" stroke="#2dd4bf" stroke-width="2"/>
+  <text class="label" x="205" y="43.5" fill="#5eead4">SCANNER</text>
+
+  <line x1="490" y1="54" x2="490" y2="86" stroke="#c084fc" stroke-width="2"/>
+  <line x1="361" y1="86" x2="619" y2="86" stroke="#c084fc" stroke-width="2" stroke-opacity="0.55"/>
+  <rect x="430" y="24" width="120" height="30" rx="8" fill="#1a1530" stroke="#c084fc" stroke-width="2"/>
+  <rect class="glow" x="430" y="24" width="120" height="30" rx="8" fill="#c084fc"/>
+  <text class="label" x="490" y="43.5" fill="#d8b4fe">DIVERTER</text>
+
+  <rect x="361" y="140" width="78" height="50" rx="8" fill="#0f172a" stroke="#94a3b8" stroke-width="1.5"/>
+  <text class="chute" x="400" y="182">chute 1</text>
+  <rect x="451" y="140" width="78" height="50" rx="8" fill="#0f172a" stroke="#94a3b8" stroke-width="1.5"/>
+  <text class="chute" x="490" y="182">chute 3</text>
+  <rect x="541" y="140" width="78" height="50" rx="8" fill="#0f172a" stroke="#94a3b8" stroke-width="1.5"/>
+  <text class="chute" x="580" y="182">chute 9</text>
+
+  <text class="end" x="670" y="103">end of</text>
+  <text class="end" x="670" y="119">the belt</text>
+
+  <text class="status code1" x="213" y="80" fill="#5eead4">30123458</text>
+  <text class="status code2" x="213" y="80" fill="#5eead4">10123454</text>
+  <text class="status code4" x="213" y="80" fill="#5eead4">55123457</text>
+  <text class="status no-read" x="213" y="80" fill="#fca5a5">no read</text>
+  <path class="push1" d="M394 79 L406 79 L400 90 Z" fill="#c084fc"/>
+  <path class="push3" d="M484 79 L496 79 L490 90 Z" fill="#c084fc"/>
+  <path class="push9" d="M574 79 L586 79 L580 90 Z" fill="#c084fc"/>
+
+  <g class="p1"><rect width="22" height="22" rx="4" fill="#fbbf24"/><rect x="4" y="7" width="14" height="8" rx="1.5" fill="#fef3c7"/><path d="M6.5 8.5v5M9 8.5v5M11 8.5v5M13.5 8.5v5M15.5 8.5v5" stroke="#78350f" stroke-width="1"/></g>
+  <g class="p2"><rect width="22" height="22" rx="4" fill="#fbbf24"/><rect x="4" y="7" width="14" height="8" rx="1.5" fill="#fef3c7"/><path d="M6.5 8.5v5M9 8.5v5M11 8.5v5M13.5 8.5v5M15.5 8.5v5" stroke="#78350f" stroke-width="1"/></g>
+  <g class="p3"><rect width="22" height="22" rx="4" fill="#fbbf24"/><rect x="4" y="7" width="14" height="8" rx="1.5" fill="#9ca3af"/><path d="M4.5 14.5 L17.5 7.5" stroke="#374151" stroke-width="1.6"/></g>
+  <g class="p4"><rect width="22" height="22" rx="4" fill="#fbbf24"/><rect x="4" y="7" width="14" height="8" rx="1.5" fill="#fef3c7"/><path d="M6.5 8.5v5M9 8.5v5M11 8.5v5M13.5 8.5v5M15.5 8.5v5" stroke="#78350f" stroke-width="1"/></g>
+
+  <rect class="beam-ok" x="189" y="92" width="32" height="30" rx="6" fill="#2dd4bf"/>
+  <rect class="beam-fail" x="189" y="92" width="32" height="30" rx="6" fill="#f87171"/>
+
+  <g class="c1"><text class="line1" x="40" y="156">Barcode 30123458:</text><text class="line2" x="40" y="176">destination 30 → chute 3</text></g>
+  <g class="c2a"><text class="line1" x="40" y="156">No read: the sorter tries again</text><text class="line2" x="40" y="176">on the next step</text></g>
+  <g class="c2b"><text class="line1" x="40" y="156">Barcode 10123454, third read:</text><text class="line2" x="40" y="176">destination 10 → chute 1</text></g>
+  <g class="c3a"><text class="line1" x="40" y="156">Damaged label: no read.</text><text class="line2" x="40" y="176">The sorter tries again.</text></g>
+  <g class="c3b"><text class="line1" x="40" y="156">The sorter gives up: the parcel</text><text class="line2" x="40" y="176">runs on to the end of the belt</text></g>
+  <g class="c4"><text class="line1" x="40" y="156">Barcode 55123457: destination 55</text><text class="line2" x="40" y="176">has no route → chute 9</text></g>
+  <g class="c5"><text class="line1" x="40" y="156">No parcel left:</text><text class="line2" x="40" y="176">the program stops</text></g>
+</svg>
