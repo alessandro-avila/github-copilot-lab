@@ -14,7 +14,7 @@ You describe what legacy C code does today in clean, readable Given/When/Then sp
 | Where | Build and run the tests |
 | ----- | ----------------------- |
 | VS Code | With the C/C++ and CMake Tools extensions: pick a compiler kit, then run **CMake: Build** and **CMake: Run Tests** |
-| Visual Studio 2026 | With the **Desktop development with C++** workload: **File > Open > Folder** on the repository root, accept CMake and set `"sourceDirectory": "legacy-c"` in the file it opens. Run the tests from **Test Explorer** |
+| Visual Studio 2026 | With the **Desktop development with C++** workload: **File > Open > Folder** on the repository root, accept CMake and set `"sourceDirectory": "legacy-c"` in the file it opens. If you said no, open **Project > CMake Workspace Settings** and set `enableCMake` to `true` and `sourceDirectory` to `legacy-c`. Run the tests from **Test Explorer** |
 | Command line | See [Build and run](../../legacy-c/README.md#build-and-run) |
 
 Open the repository root, so Copilot finds `.github/`. Visual Studio needs custom instructions switched on: see [Before you start](../README.md#before-you-start). You run a prompt file by typing `/` and its name; in Visual Studio versions before 2026, type `#prompt:` and pick it.
