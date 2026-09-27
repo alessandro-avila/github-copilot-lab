@@ -1,0 +1,38 @@
+// Example only: this file is not active. VS Code reads MCP servers from
+// .vscode/mcp.json and from your user configuration, never from this path.
+//
+// It connects Copilot to Jira Server or Data Center through the community
+// mcp-atlassian server (open source, MIT, not an Atlassian product).
+// Get your organisation's security approval before you use it.
+//
+// To use it:
+//   1. Run MCP: Open User Configuration in VS Code.
+//   2. Copy the "mcp-atlassian" entry and the "inputs" entry into that file.
+//   3. Set JIRA_URL to your Jira address.
+//
+// Never write the token into a file, and never commit one. VS Code asks for
+// it the first time the server starts and stores it securely.
+{
+  "servers": {
+    "mcp-atlassian": {
+      "type": "stdio",
+      "command": "uvx",
+      "args": ["mcp-atlassian"],
+      "env": {
+        "JIRA_URL": "https://jira.example.com",
+        "JIRA_PERSONAL_TOKEN": "${input:jira-personal-token}",
+        // Only the tools this challenge needs.
+        "ENABLED_TOOLS": "jira_search,jira_get_issue,jira_create_issue"
+      }
+    }
+  },
+
+  "inputs": [
+    {
+      "id": "jira-personal-token",
+      "type": "promptString",
+      "description": "Jira personal access token",
+      "password": true
+    }
+  ]
+}

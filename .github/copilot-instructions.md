@@ -34,7 +34,8 @@ repository instructions were applied. Keep it even for short answers.
 
 ## What not to do
 
-- Do not add build tooling, `package.json`, test runners or dependencies. This repo
-  stays install-free on purpose.
+- Do not add build tooling, `package.json`, test runners or dependencies to `app/`.
+  The TypeScript demo stays install-free on purpose.
+- The C challenge in `legacy-c/` uses CMake and a tiny built-in test harness.
 - Do not "fix" the rough edges in `app/` unless explicitly asked — they are the
   before-state for a live demo.

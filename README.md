@@ -176,3 +176,4 @@ Skills and MCP are the portable core. Invest there first.
 - [Cheatsheet](docs/CHEATSHEET.md) — locations, precedence, MCP sources, chat modes
 - [Demo app](app/README.md)
 - [Plugin anatomy](plugins/copilot-lab-plugin/README.md)
+- [Challenges](challenges/README.md) — hands-on: specs and tests for legacy C, better tickets
