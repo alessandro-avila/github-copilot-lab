@@ -1,4 +1,5 @@
-﻿# Build output for the legacy C challenge (CMake, Visual Studio, cl)
+# Build output for the C challenges (CMake, Visual Studio, cl)
 build/
 out/
 .vs/
+build-pm/

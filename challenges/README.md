@@ -1,13 +1,14 @@
 # Challenges
 
-Two hands-on challenges you work through in pairs after the demo, each in 45–60 minutes.
+Three hands-on challenges you work through in pairs, each in 45–60 minutes.
 
 | # | Challenge | Goal | You learn | Copilot building blocks |
 | - | --------- | ---- | --------- | ----------------------- |
 | 1 | [Specs you can test](01-legacy-c-testable/README.md) | Describe what old C code does today in clean, readable specs, then turn every scenario into a test | Six rules for a spec you can test, reviewing a spec, flagging instead of fixing, one test per scenario | Agent mode, the prompt files `/spec-from-code` and `/tests-from-spec`, path instructions for specs and C, the **Spec reviewer** custom agent |
 | 2 | [Better implementation tickets](02-better-tickets/README.md) | Turn a vague business request into a ticket a developer can start on | A one-screen Definition of Ready, acceptance criteria as Given/When/Then, asking instead of guessing | The prompt file `/refine-ticket`, repository search, optionally a Jira MCP server |
+| 3 | [Reverse engineer, review and test](03-point-monitor/README.md) | Work out what a legacy C monitor for railway points does, review it against what maintenance expects, then test it | Reverse engineering, sorting review findings, characterisation tests, fixing a defect test first | Ask and Agent mode, the skills `/rail-spec` and `/rail-tests`, the **Code reviewer** custom agent, path instructions for specs and C |
 
-The two connect: a ticket from Challenge 2 changes the sorter you test in Challenge 1. That is the path from ticket to tested code.
+The first two connect: a ticket from Challenge 2 changes the sorter you test in Challenge 1. That is the path from ticket to tested code. Challenge 3 applies the method of Challenge 1 to new code, and adds a code review.
 
 ## How to run a challenge
 
@@ -26,6 +27,7 @@ The two connect: a ticket from Challenge 2 changes the sorter you test in Challe
 | Chat | Agent mode |
 | Visual Studio | In **Tools > Options > All Settings > GitHub > Copilot > Copilot Chat**, select **Enable custom instructions to be loaded from .github/copilot-instructions.md files and added to requests** |
 | Prompt files | Type `/` and the prompt name, for example `/spec-from-code`. Visual Studio 2026 works the same way; in older versions, type `#prompt:` and pick the prompt |
+| Skills | Type `/` and the skill name, for example `/rail-spec`, in VS Code or Copilot CLI. In Visual Studio 2026, version 18.5 or later, ask in agent mode: `Use the rail-spec skill on point-monitor/monitor.c` |
 
 ## Related
 

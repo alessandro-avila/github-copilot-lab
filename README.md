@@ -1,13 +1,14 @@
 # GitHub Copilot lab
 
-This repository has a guided tour of the GitHub Copilot building blocks and two hands-on challenges. You set up once, then work through each challenge in pairs, in 45–60 minutes.
+This repository has a guided tour of the GitHub Copilot building blocks and three hands-on challenges. You set up once, then work through each challenge in pairs, in 45–60 minutes.
 
 | Section | What you find there |
 | ------- | ------------------- |
 | [Get started](#get-started) | Clone the repository and open it in your editor |
-| [Set up the C build](#set-up-the-c-build-challenge-1) | Build and test the C code for Challenge 1 |
+| [Set up the C build](#set-up-the-c-build-challenges-1-and-3) | Build and test the C code for Challenges 1 and 3 |
 | [Challenge 1: specs you can test](#challenge-1-specs-you-can-test) | Describe legacy C code in specs, then turn every scenario into a test |
 | [Challenge 2: better implementation tickets](#challenge-2-better-implementation-tickets) | Turn a vague business request into a ticket a developer can start on |
+| [Challenge 3: reverse engineer, review and test](#challenge-3-reverse-engineer-review-and-test) | Work out what a legacy C monitor for railway points does, review it, then test it |
 | [Customisation tour](#customisation-tour-presenter-script) | The script the presenter follows in the demo |
 
 ## Get started
@@ -21,13 +22,13 @@ Open the repository root in VS Code or Visual Studio 2026, not a subfolder, so C
 
 In Visual Studio, switch on custom instructions: in **Tools > Options > All Settings > GitHub > Copilot > Copilot Chat**, select **Enable custom instructions to be loaded from .github/copilot-instructions.md files and added to requests**.
 
-## Set up the C build (Challenge 1)
+## Set up the C build (Challenges 1 and 3)
 
-Challenge 1 builds the C code in `legacy-c/` with CMake and runs its tests with CTest. You set it up once, in the editor you use.
+Challenges 1 and 3 build the C code in `legacy-c/` and `point-monitor/` with CMake and run their tests with CTest. You set it up once, in the editor you use.
 
 ### VS Code
 
-Install the C/C++ and CMake Tools extensions. `.vscode/settings.json` already points CMake Tools at `legacy-c/`. Pick a compiler kit when CMake Tools asks, then run **CMake: Build** and **CMake: Run Tests**.
+Install the C/C++ and CMake Tools extensions. `.vscode/settings.json` already points CMake Tools at `legacy-c/` and `point-monitor/`: pick the project for your challenge in the CMake view. Pick a compiler kit when CMake Tools asks, then run **CMake: Build** and **CMake: Run Tests**.
 
 ### Visual Studio 2026
 
@@ -39,7 +40,7 @@ You need the **Desktop development with C++** workload.
    ```json
    {
      "enableCMake": true,
-     "sourceDirectory": "legacy-c"
+     "sourceDirectory": ["legacy-c", "point-monitor"]
    }
    ```
 
@@ -50,13 +51,15 @@ Git ignores `.vs/`, so everyone does this once on their own machine.
 
 ### Command line
 
-From the repository root:
+From the repository root, for Challenge 1:
 
 ```
 cmake -S legacy-c -B build
 cmake --build build
 ctest --test-dir build -C Debug
 ```
+
+For Challenge 3, use `cmake -S point-monitor -B build-pm` and `build-pm` in the other two commands.
 
 If your shell cannot find `cmake`, use a Developer Command Prompt or Developer PowerShell for Visual Studio.
 
@@ -145,6 +148,23 @@ You start from a [poor ticket](challenges/02-better-tickets/examples/poor-ticket
 Jira is optional: see the [challenge README](challenges/02-better-tickets/README.md#connect-copilot-to-jira-optional) for the MCP server and the security approval it needs.
 
 Full steps: [Challenge 2](challenges/02-better-tickets/README.md).
+
+## Challenge 3: reverse engineer, review and test
+
+You work out what a small, deliberately rough C monitor for railway points does today, review it against what maintenance expects, then pin it down with one test per scenario.
+
+A point machine moves a set of points; one movement is a throw. A monitoring unit times every throw, and the monitor in [point-monitor/](point-monitor/README.md) turns slow throws into warnings and alarms for the maintenance desk.
+
+| Step | You run | What happens |
+| ---- | ------- | ------------ |
+| 1. Reverse engineer | Ask mode, then `/rail-spec` | Copilot explains the monitor, draws a flowchart, then writes what it does today as a spec and flags anything odd |
+| 2. Review | The **Code reviewer** agent | You sort its findings into defect, question or style, and decide every flag. The agent points out problems and never edits |
+| 3. Test | `/rail-tests` | Copilot writes one test per scenario, then builds and runs them. They pass on the unchanged code |
+| Stretch | Your own prompt | You fix one defect test first: spec, then test, then code |
+
+The C build works as for Challenge 1, with `point-monitor` in place of `legacy-c`: see [Build and run](point-monitor/README.md#build-and-run).
+
+Full steps, hints and the reference solution: [Challenge 3](challenges/03-point-monitor/README.md).
 
 ## Customisation tour (presenter script)
 
@@ -324,6 +344,7 @@ Skills and MCP are the portable core. Invest there first.
 - [Cheatsheet](docs/CHEATSHEET.md) — locations, precedence, MCP sources, chat modes
 - [Demo app](app/README.md)
 - [Plugin anatomy](plugins/copilot-lab-plugin/README.md)
-- [Challenges](challenges/README.md) — both challenges, and how to run them
+- [Challenges](challenges/README.md) — all three challenges, and how to run them
 - [Challenge 1: specs you can test](challenges/01-legacy-c-testable/README.md)
 - [Challenge 2: better implementation tickets](challenges/02-better-tickets/README.md)
+- [Challenge 3: reverse engineer, review and test](challenges/03-point-monitor/README.md)
