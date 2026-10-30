@@ -1,10 +1,9 @@
 ---
-name: 'spec-from-code'
+name: spec-from-code
 description: 'Describe what a legacy C module does today as a clean Given/When/Then spec'
+disable-model-invocation: true
 argument-hint: 'the module to describe, e.g. legacy-c/sorter.c'
-agent: 'agent'
 ---
-
 # Spec from code
 
 Write down what a module does **today** as a spec that a person can review and a test can check.

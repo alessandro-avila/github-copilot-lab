@@ -1,10 +1,9 @@
 ---
-name: 'tests-from-spec'
+name: tests-from-spec
 description: 'Write one test per scenario of a reviewed legacy C spec, then build and run them'
+disable-model-invocation: true
 argument-hint: 'the spec to test, e.g. legacy-c/specs/route.spec.md'
-agent: 'agent'
 ---
-
 # Tests from spec
 
 Turn every scenario in a reviewed spec into one test, so that the tests pin down what the code does today.

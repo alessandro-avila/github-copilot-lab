@@ -1,10 +1,9 @@
 ---
-name: 'refine-ticket'
+name: refine-ticket
 description: 'Turn a business request into an implementation ticket that follows the ticket template'
+disable-model-invocation: true
 argument-hint: 'a request file, e.g. challenges/02-better-tickets/business-requests/01-operations-email.md, or pasted text'
-agent: 'agent'
 ---
-
 # Refine a business request into a ticket
 
 Turn a business request into a ticket a developer can start on: you draft, the user decides.

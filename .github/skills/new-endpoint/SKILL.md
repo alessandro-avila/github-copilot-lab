@@ -1,10 +1,9 @@
 ---
-name: 'new-endpoint'
+name: new-endpoint
 description: 'Scaffold a new order API endpoint with types, validation and docs'
+disable-model-invocation: true
 argument-hint: 'the resource name, e.g. refunds'
-agent: 'agent'
 ---
-
 # Scaffold a new endpoint
 
 Add a new endpoint to the demo app for the resource: **${input:resource}**.
