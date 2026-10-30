@@ -18,7 +18,7 @@ git clone https://github.com/alessandro-avila/github-copilot-lab.git
 cd github-copilot-lab
 ```
 
-Open the repository root in VS Code or Visual Studio 2026, not a subfolder, so Copilot finds `.github/`. In Copilot Chat, pick **Agent** mode. You run a prompt file by typing `/` and its name, for example `/spec-from-code`; in Visual Studio versions before 2026, type `#prompt:` and pick it.
+Open the repository root in VS Code or Visual Studio 2026, not a subfolder, so Copilot finds `.github/`. In Copilot Chat, pick **Agent** mode. You run a skill as a command by typing `/` and its name, for example `/spec-from-code`. In Visual Studio 2026, version 18.5 or later, ask for the skill by name in agent mode; if it does not load, attach its `SKILL.md` with `#`.
 
 In Visual Studio, switch on custom instructions: in **Tools > Options > All Settings > GitHub > Copilot > Copilot Chat**, select **Enable custom instructions to be loaded from .github/copilot-instructions.md files and added to requests**.
 
@@ -174,7 +174,7 @@ Five customization primitives.
 | - | --------- | -------- | ------- |
 | 1 | Repo instructions | `.github/copilot-instructions.md` | always |
 | 2 | Path instructions | `.github/instructions/*.instructions.md` | by `applyTo` glob |
-| 3 | Prompt files | `.github/prompts/*.prompt.md` | `/name` |
+| 3 | Skills as commands | `.github/skills/*/SKILL.md` with `disable-model-invocation: true` | `/name` |
 | 4 | Skills | `.github/skills/*/SKILL.md` | by the model |
 | 5 | MCP servers | `.vscode/mcp.json`, `.mcp.json` | tool calls |
 | 6 | Plugins | installed, not committed | bundles 4 + 5 |
@@ -220,7 +220,12 @@ Add a short section describing what this module is for.
 **Look for:** sentence-case heading, "you" not "we", no marketing adjectives, a
 `## Related` section. Same session, different rules.
 
-### 3. Prompt files
+### 3. Skills as commands
+
+These were prompt files. Prompt files are deprecated in the VS Code Agent Host, so
+this repository converted them with **Chat: Open Customizations > Migrate Prompt
+Files > Convert to Skills**. `disable-model-invocation: true` keeps each one manual,
+like the prompt file it replaces.
 
 ```
 /new-endpoint refunds

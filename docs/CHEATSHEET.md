@@ -38,7 +38,7 @@ Custom agents are defined in `.github/agents/*.agent.md`; this repo ships
 | Repository instructions | `.github/copilot-instructions.md` | — |
 | Agent instructions | `AGENTS.md` (root or subfolders) | — |
 | Path-specific instructions | `.github/instructions/*.instructions.md` | `~/.copilot/instructions/` |
-| Prompt files | `.github/prompts/*.prompt.md` | VS Code profile |
+| Prompt files (deprecated in the Agent Host; this repo has none) | `.github/prompts/*.prompt.md` | VS Code profile |
 | Skills | `.github/skills/<name>/SKILL.md` | `~/.copilot/skills/` |
 | Custom agents | `.github/agents/*.agent.md` | `~/.copilot/agents/` |
 | MCP (VS Code) | `.vscode/mcp.json` | **MCP: Open User Configuration** |
@@ -59,7 +59,7 @@ for always-on instructions.
 | Repository instructions | Every request | Existing |
 | Path-specific instructions | File matches `applyTo` glob, or description matches the task | The glob |
 | Prompt files | You type `/name` | Typing it |
-| Skills | Model decides from the `description` | Wording the description well |
+| Skills | Model decides from the `description`, or you type `/name` | Wording the description well; `disable-model-invocation: true` makes it `/name` only |
 | MCP servers | Model calls a tool | Enabling the server and its tools |
 | Plugins | Whatever they contain | Installing / disabling |
 
@@ -89,11 +89,15 @@ Use `${input:variable}` in the body for values passed on the command line.
 
 | Field | Purpose |
 | ----- | ------- |
-| `name` | Skill identifier |
+| `name` | Skill identifier, and what you type after `/`. Must match the folder name |
 | `description` | **The most important line.** This is what the model matches against to decide relevance |
+| `argument-hint` | Placeholder text in the chat input when you run the skill as a command |
+| `disable-model-invocation` | `true`: only you start it, with `/name`, as you would a prompt file |
+| `user-invocable` | `false`: hidden from the `/` menu, loaded only by the model |
 
 Write the description as *when to use this*, not *what this is*. Include the phrases
-a user would actually say.
+a user would actually say. A skill gets what you type after its name as plain text:
+`${input:variable}` only works in prompt files.
 
 ## Precedence and composition
 
@@ -102,7 +106,7 @@ matching `*.instructions.md` both apply, you get both. VS Code guarantees no
 particular ordering between multiple instruction files, so avoid writing rules that
 contradict each other and expecting one to win.
 
-A prompt file's body is added on top of whatever instructions already applied. That
+A skill's body is added on top of whatever instructions already applied. That
 is why `/new-endpoint` in this repo still produces typed, documented code — the
 TypeScript instructions are underneath it.
 

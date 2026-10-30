@@ -6,11 +6,11 @@ argument-hint: 'the resource name, e.g. refunds'
 ---
 # Scaffold a new endpoint
 
-Add a new endpoint to the demo app for the resource: **${input:resource}**.
+Add a new endpoint to the demo app for the resource the user typed after the command, for example `refunds` in `/new-endpoint refunds`.
 
 If no resource name came through, ask the user for one before doing anything else.
 
-Read [api.ts](../../app/api.ts) and [utils.ts](../../app/utils.ts) first so the new
+Read [api.ts](../../../app/api.ts) and [utils.ts](../../../app/utils.ts) first so the new
 code matches the surrounding style and reuses existing helpers.
 
 ## What to produce

@@ -12,7 +12,7 @@ The request is a file the user named or attached, or text they pasted. If there 
 
 ## Steps
 
-1. Read the request and [ticket-template.md](../../challenges/02-better-tickets/ticket-template.md).
+1. Read the request and [ticket-template.md](../../../challenges/02-better-tickets/ticket-template.md).
 2. If the request mixes several topics, list them and ask which one to refine. One ticket, one outcome.
 3. If the ticket needs missing information, ask **at most three** clarifying questions in one message, and wait for the answers. Ask about what changes the implementation most: numbers, limits, exceptions, who is affected.
 4. Search the repository for the code the request touches. Name the files and functions under "Affected code areas". If a spec covers that code, for example in `legacy-c/specs/` or `challenges/01-legacy-c-testable/solution/`, say which scenarios the ticket changes.
@@ -38,5 +38,5 @@ Listing the open questions that still block the start, or saying "Ready: no bloc
 
 ## Related
 
-- [Ticket template](../../challenges/02-better-tickets/ticket-template.md)
-- [Challenge 2](../../challenges/02-better-tickets/README.md)
+- [Ticket template](../../../challenges/02-better-tickets/ticket-template.md)
+- [Challenge 2](../../../challenges/02-better-tickets/README.md)
