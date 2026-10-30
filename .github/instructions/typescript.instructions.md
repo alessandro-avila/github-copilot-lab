@@ -1,9 +1,8 @@
 ---
 name: 'TypeScript standards'
 description: 'Strict typing and defensive coding rules for TypeScript files'
-applyTo: '**/*.ts'
+applyTo: 'app/**/*.ts'
 ---
-
 # TypeScript standards
 
 These rules load **only** when Copilot is working on a `.ts` file. Open a `.md`

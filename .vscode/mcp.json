@@ -8,14 +8,6 @@
 //   github           OAuth, VS Code prompts you on first use
 {
   "servers": {
-    "microsoft-learn": {
-      "type": "http",
-      "url": "https://learn.microsoft.com/api/mcp"
-    },
-    "github": {
-      "type": "http",
-      "url": "https://api.githubcopilot.com/mcp"
-    }
 
     // ── Secrets pattern ──────────────────────────────────────────────────
     // Left commented out on purpose so the demo has no live dependency.
