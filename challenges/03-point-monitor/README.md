@@ -13,6 +13,12 @@ You work out what a legacy C monitor for railway points does today, review it ag
 
 Points, or switches, let a train change track. A point machine moves them; one movement is a throw. A monitoring unit times every throw, and a slow throw is an early sign of a fault. The monitor in `point-monitor/` turns those times into warnings and alarms for the maintenance desk. Nobody who wrote it is still on the team, and nobody has written down what it really does.
 
+This animation replays one run of `monitor_app` with the eight throws in [mu.c](../../point-monitor/mu.c):
+
+![Animation of one monitor run. For each throw the points move, the throw time fills a gauge with limits at 4 and 6 seconds, and the monitor sends any alert to the maintenance desk. P101 moves in 3.2 seconds: ok, no alert. P101, 4.5 seconds: slow, a warning. P102, 4.7 seconds: slow, a warning. P101, 3.3 seconds: ok. P103, 4.4 seconds: slow, a warning. P104, 4.6 seconds: slow, a warning. P105, 4.8 seconds: slow, an alarm. P102, 7.2 seconds: too slow, an alarm.](monitor-run.svg)
+
+The run takes place in the daytime. To see it as console output, [build and run](../../point-monitor/README.md#build-and-run) `monitor_app`.
+
 ## Before you start (5 minutes)
 
 Open the repository root, not a subfolder, so Copilot finds `.github/`.

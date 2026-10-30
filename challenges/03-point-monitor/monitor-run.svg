@@ -1,0 +1,493 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="212" viewBox="0 0 800 212" role="img" aria-labelledby="title desc">
+<!--
+  One run of monitor_app with the eight stand-in throws in point-monitor/mu.c,
+  as a 25-second loop. Generated from the program output and the limits in
+  grade.c. People who switch animations off see the end of the shift.
+-->
+<title id="title">One run of the point machine monitor</title>
+<desc id="desc">Eight throws arrive from the monitoring unit. For each one the points move, the throw time fills a gauge with limits at 4 and 6 seconds, and the monitor sends any alert to the maintenance desk. Points P101 move in 3.2 seconds: ok, no alert. Points P101 move in 4.5 seconds: slow, warning. Points P102 move in 4.7 seconds: slow, warning. Points P101 move in 3.3 seconds: ok, no alert. Points P103 move in 4.4 seconds: slow, warning. Points P104 move in 4.6 seconds: slow, warning. Points P105 move in 4.8 seconds: slow, alarm. Points P102 move in 7.2 seconds: too slow, alarm.</desc>
+<style>
+svg { font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif; }
+.label { font-size: 12px; font-weight: 700; letter-spacing: 1.2px; text-anchor: middle; }
+.status { font-size: 12px; font-weight: 700; }
+.tick { font-size: 10px; font-weight: 600; text-anchor: middle; }
+.result { font-size: 15px; font-weight: 700; }
+.pill { font-size: 10px; font-weight: 700; letter-spacing: 0.8px; text-anchor: middle; }
+.desk { font-size: 12px; font-weight: 600; fill: #e2e8f0; }
+.line1 { font-size: 13px; font-weight: 600; fill: #e2e8f0; }
+.line2 { font-size: 13px; fill: #cbd5e1; }
+.blade { transform-box: view-box; transform-origin: 100px 110px; }
+.gauge { transform-box: view-box; transform-origin: 352px 85.0px; }
+.pt0, .pt1, .pt2, .pt3, .pt4, .pt5, .pt6, .g0, .g1, .g2, .g3, .g4, .g5, .g6, .r0, .r1, .r2, .r3, .r4, .r5, .r6, .cintro, .c0, .c1, .c2, .c3, .c4, .c5, .c6, .cend { opacity: 0; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .pt0 { animation: pt0 25s linear infinite; }
+  .pt1 { animation: pt1 25s linear infinite; }
+  .pt2 { animation: pt2 25s linear infinite; }
+  .pt3 { animation: pt3 25s linear infinite; }
+  .pt4 { animation: pt4 25s linear infinite; }
+  .pt5 { animation: pt5 25s linear infinite; }
+  .pt6 { animation: pt6 25s linear infinite; }
+  .pt7 { animation: pt7 25s linear infinite; }
+  .g0 { animation: g0 25s linear infinite; }
+  .g1 { animation: g1 25s linear infinite; }
+  .g2 { animation: g2 25s linear infinite; }
+  .g3 { animation: g3 25s linear infinite; }
+  .g4 { animation: g4 25s linear infinite; }
+  .g5 { animation: g5 25s linear infinite; }
+  .g6 { animation: g6 25s linear infinite; }
+  .g7 { animation: g7 25s linear infinite; }
+  .r0 { animation: r0 25s linear infinite; }
+  .r1 { animation: r1 25s linear infinite; }
+  .r2 { animation: r2 25s linear infinite; }
+  .r3 { animation: r3 25s linear infinite; }
+  .r4 { animation: r4 25s linear infinite; }
+  .r5 { animation: r5 25s linear infinite; }
+  .r6 { animation: r6 25s linear infinite; }
+  .r7 { animation: r7 25s linear infinite; }
+  .a0 { animation: a0 25s linear infinite; }
+  .a1 { animation: a1 25s linear infinite; }
+  .a2 { animation: a2 25s linear infinite; }
+  .a3 { animation: a3 25s linear infinite; }
+  .a4 { animation: a4 25s linear infinite; }
+  .a5 { animation: a5 25s linear infinite; }
+  .cintro { animation: cintro 25s linear infinite; }
+  .c0 { animation: c0 25s linear infinite; }
+  .c1 { animation: c1 25s linear infinite; }
+  .c2 { animation: c2 25s linear infinite; }
+  .c3 { animation: c3 25s linear infinite; }
+  .c4 { animation: c4 25s linear infinite; }
+  .c5 { animation: c5 25s linear infinite; }
+  .c6 { animation: c6 25s linear infinite; }
+  .c7 { animation: c7 25s linear infinite; }
+  .cend { animation: cend 25s linear infinite; }
+  .blade { animation: blade 25s linear infinite; }
+}
+@keyframes pt0 {
+  0% { opacity: 0 }
+  3.2% { opacity: 0 }
+  3.8% { opacity: 1 }
+  13.6% { opacity: 1 }
+  14.2% { opacity: 0 }
+  100% { opacity: 0 }
+}
+@keyframes pt1 {
+  0% { opacity: 0 }
+  14.2% { opacity: 0 }
+  14.8% { opacity: 1 }
+  24.6% { opacity: 1 }
+  25.2% { opacity: 0 }
+  100% { opacity: 0 }
+}
+@keyframes pt2 {
+  0% { opacity: 0 }
+  25.2% { opacity: 0 }
+  25.8% { opacity: 1 }
+  35.6% { opacity: 1 }
+  36.2% { opacity: 0 }
+  100% { opacity: 0 }
+}
+@keyframes pt3 {
+  0% { opacity: 0 }
+  36.2% { opacity: 0 }
+  36.8% { opacity: 1 }
+  46.6% { opacity: 1 }
+  47.2% { opacity: 0 }
+  100% { opacity: 0 }
+}
+@keyframes pt4 {
+  0% { opacity: 0 }
+  47.2% { opacity: 0 }
+  47.8% { opacity: 1 }
+  57.6% { opacity: 1 }
+  58.2% { opacity: 0 }
+  100% { opacity: 0 }
+}
+@keyframes pt5 {
+  0% { opacity: 0 }
+  58.2% { opacity: 0 }
+  58.8% { opacity: 1 }
+  68.6% { opacity: 1 }
+  69.2% { opacity: 0 }
+  100% { opacity: 0 }
+}
+@keyframes pt6 {
+  0% { opacity: 0 }
+  69.2% { opacity: 0 }
+  69.8% { opacity: 1 }
+  79.6% { opacity: 1 }
+  80.2% { opacity: 0 }
+  100% { opacity: 0 }
+}
+@keyframes pt7 {
+  0% { opacity: 0 }
+  80.2% { opacity: 0 }
+  80.8% { opacity: 1 }
+  97% { opacity: 1 }
+  97.6% { opacity: 0 }
+  100% { opacity: 0 }
+}
+@keyframes blade {
+  0% { transform: rotate(0deg); stroke: #5eead4 }
+  4.4% { transform: rotate(0deg); stroke: #5eead4 }
+  4.44% { transform: rotate(0deg); stroke: #fcd34d }
+  7.6% { transform: rotate(-9deg); stroke: #fcd34d }
+  7.64% { transform: rotate(-9deg); stroke: #5eead4 }
+  15.4% { transform: rotate(-9deg); stroke: #5eead4 }
+  15.44% { transform: rotate(-9deg); stroke: #fcd34d }
+  19.9% { transform: rotate(0deg); stroke: #fcd34d }
+  19.94% { transform: rotate(0deg); stroke: #5eead4 }
+  26.4% { transform: rotate(0deg); stroke: #5eead4 }
+  26.44% { transform: rotate(0deg); stroke: #fcd34d }
+  31.1% { transform: rotate(-9deg); stroke: #fcd34d }
+  31.14% { transform: rotate(-9deg); stroke: #5eead4 }
+  37.4% { transform: rotate(-9deg); stroke: #5eead4 }
+  37.44% { transform: rotate(-9deg); stroke: #fcd34d }
+  40.7% { transform: rotate(0deg); stroke: #fcd34d }
+  40.74% { transform: rotate(0deg); stroke: #5eead4 }
+  48.4% { transform: rotate(0deg); stroke: #5eead4 }
+  48.44% { transform: rotate(0deg); stroke: #fcd34d }
+  52.8% { transform: rotate(-9deg); stroke: #fcd34d }
+  52.84% { transform: rotate(-9deg); stroke: #5eead4 }
+  59.4% { transform: rotate(-9deg); stroke: #5eead4 }
+  59.44% { transform: rotate(-9deg); stroke: #fcd34d }
+  64% { transform: rotate(0deg); stroke: #fcd34d }
+  64.04% { transform: rotate(0deg); stroke: #5eead4 }
+  70.4% { transform: rotate(0deg); stroke: #5eead4 }
+  70.44% { transform: rotate(0deg); stroke: #fcd34d }
+  75.2% { transform: rotate(-9deg); stroke: #fcd34d }
+  75.24% { transform: rotate(-9deg); stroke: #5eead4 }
+  81.4% { transform: rotate(-9deg); stroke: #5eead4 }
+  81.44% { transform: rotate(-9deg); stroke: #fcd34d }
+  88.6% { transform: rotate(0deg); stroke: #fcd34d }
+  88.64% { transform: rotate(0deg); stroke: #5eead4 }
+  100% { transform: rotate(0deg); stroke: #5eead4 }
+}
+@keyframes g0 {
+  0% { transform: scaleX(0); opacity: 0 }
+  4.36% { transform: scaleX(0); opacity: 0 }
+  4.4% { transform: scaleX(0); opacity: 1 }
+  7.6% { transform: scaleX(1); opacity: 1 }
+  13.6% { transform: scaleX(1); opacity: 1 }
+  14.2% { transform: scaleX(1); opacity: 0 }
+  100% { transform: scaleX(1); opacity: 0 }
+}
+@keyframes r0 {
+  0% { opacity: 0 }
+  7.6% { opacity: 0 }
+  8.2% { opacity: 1 }
+  13.6% { opacity: 1 }
+  14.2% { opacity: 0 }
+  100% { opacity: 0 }
+}
+@keyframes g1 {
+  0% { transform: scaleX(0); opacity: 0 }
+  15.36% { transform: scaleX(0); opacity: 0 }
+  15.4% { transform: scaleX(0); opacity: 1 }
+  19.9% { transform: scaleX(1); opacity: 1 }
+  24.6% { transform: scaleX(1); opacity: 1 }
+  25.2% { transform: scaleX(1); opacity: 0 }
+  100% { transform: scaleX(1); opacity: 0 }
+}
+@keyframes r1 {
+  0% { opacity: 0 }
+  19.9% { opacity: 0 }
+  20.5% { opacity: 1 }
+  24.6% { opacity: 1 }
+  25.2% { opacity: 0 }
+  100% { opacity: 0 }
+}
+@keyframes g2 {
+  0% { transform: scaleX(0); opacity: 0 }
+  26.36% { transform: scaleX(0); opacity: 0 }
+  26.4% { transform: scaleX(0); opacity: 1 }
+  31.1% { transform: scaleX(1); opacity: 1 }
+  35.6% { transform: scaleX(1); opacity: 1 }
+  36.2% { transform: scaleX(1); opacity: 0 }
+  100% { transform: scaleX(1); opacity: 0 }
+}
+@keyframes r2 {
+  0% { opacity: 0 }
+  31.1% { opacity: 0 }
+  31.7% { opacity: 1 }
+  35.6% { opacity: 1 }
+  36.2% { opacity: 0 }
+  100% { opacity: 0 }
+}
+@keyframes g3 {
+  0% { transform: scaleX(0); opacity: 0 }
+  37.36% { transform: scaleX(0); opacity: 0 }
+  37.4% { transform: scaleX(0); opacity: 1 }
+  40.7% { transform: scaleX(1); opacity: 1 }
+  46.6% { transform: scaleX(1); opacity: 1 }
+  47.2% { transform: scaleX(1); opacity: 0 }
+  100% { transform: scaleX(1); opacity: 0 }
+}
+@keyframes r3 {
+  0% { opacity: 0 }
+  40.7% { opacity: 0 }
+  41.3% { opacity: 1 }
+  46.6% { opacity: 1 }
+  47.2% { opacity: 0 }
+  100% { opacity: 0 }
+}
+@keyframes g4 {
+  0% { transform: scaleX(0); opacity: 0 }
+  48.36% { transform: scaleX(0); opacity: 0 }
+  48.4% { transform: scaleX(0); opacity: 1 }
+  52.8% { transform: scaleX(1); opacity: 1 }
+  57.6% { transform: scaleX(1); opacity: 1 }
+  58.2% { transform: scaleX(1); opacity: 0 }
+  100% { transform: scaleX(1); opacity: 0 }
+}
+@keyframes r4 {
+  0% { opacity: 0 }
+  52.8% { opacity: 0 }
+  53.4% { opacity: 1 }
+  57.6% { opacity: 1 }
+  58.2% { opacity: 0 }
+  100% { opacity: 0 }
+}
+@keyframes g5 {
+  0% { transform: scaleX(0); opacity: 0 }
+  59.36% { transform: scaleX(0); opacity: 0 }
+  59.4% { transform: scaleX(0); opacity: 1 }
+  64% { transform: scaleX(1); opacity: 1 }
+  68.6% { transform: scaleX(1); opacity: 1 }
+  69.2% { transform: scaleX(1); opacity: 0 }
+  100% { transform: scaleX(1); opacity: 0 }
+}
+@keyframes r5 {
+  0% { opacity: 0 }
+  64% { opacity: 0 }
+  64.6% { opacity: 1 }
+  68.6% { opacity: 1 }
+  69.2% { opacity: 0 }
+  100% { opacity: 0 }
+}
+@keyframes g6 {
+  0% { transform: scaleX(0); opacity: 0 }
+  70.36% { transform: scaleX(0); opacity: 0 }
+  70.4% { transform: scaleX(0); opacity: 1 }
+  75.2% { transform: scaleX(1); opacity: 1 }
+  79.6% { transform: scaleX(1); opacity: 1 }
+  80.2% { transform: scaleX(1); opacity: 0 }
+  100% { transform: scaleX(1); opacity: 0 }
+}
+@keyframes r6 {
+  0% { opacity: 0 }
+  75.2% { opacity: 0 }
+  75.8% { opacity: 1 }
+  79.6% { opacity: 1 }
+  80.2% { opacity: 0 }
+  100% { opacity: 0 }
+}
+@keyframes g7 {
+  0% { transform: scaleX(0); opacity: 0 }
+  81.36% { transform: scaleX(0); opacity: 0 }
+  81.4% { transform: scaleX(0); opacity: 1 }
+  88.6% { transform: scaleX(1); opacity: 1 }
+  97% { transform: scaleX(1); opacity: 1 }
+  97.6% { transform: scaleX(1); opacity: 0 }
+  100% { transform: scaleX(1); opacity: 0 }
+}
+@keyframes r7 {
+  0% { opacity: 0 }
+  88.6% { opacity: 0 }
+  89.2% { opacity: 1 }
+  97% { opacity: 1 }
+  97.6% { opacity: 0 }
+  100% { opacity: 0 }
+}
+@keyframes a0 {
+  0% { opacity: 0; transform: translateX(14px) }
+  20.5% { opacity: 0; transform: translateX(14px) }
+  21.7% { opacity: 1; transform: translateX(0px) }
+  97.6% { opacity: 1; transform: translateX(0px) }
+  99.2% { opacity: 0; transform: translateX(0px) }
+  100% { opacity: 0; transform: translateX(0px) }
+}
+@keyframes a1 {
+  0% { opacity: 0; transform: translateX(14px) }
+  31.7% { opacity: 0; transform: translateX(14px) }
+  32.9% { opacity: 1; transform: translateX(0px) }
+  97.6% { opacity: 1; transform: translateX(0px) }
+  99.2% { opacity: 0; transform: translateX(0px) }
+  100% { opacity: 0; transform: translateX(0px) }
+}
+@keyframes a2 {
+  0% { opacity: 0; transform: translateX(14px) }
+  53.4% { opacity: 0; transform: translateX(14px) }
+  54.6% { opacity: 1; transform: translateX(0px) }
+  97.6% { opacity: 1; transform: translateX(0px) }
+  99.2% { opacity: 0; transform: translateX(0px) }
+  100% { opacity: 0; transform: translateX(0px) }
+}
+@keyframes a3 {
+  0% { opacity: 0; transform: translateX(14px) }
+  64.6% { opacity: 0; transform: translateX(14px) }
+  65.8% { opacity: 1; transform: translateX(0px) }
+  97.6% { opacity: 1; transform: translateX(0px) }
+  99.2% { opacity: 0; transform: translateX(0px) }
+  100% { opacity: 0; transform: translateX(0px) }
+}
+@keyframes a4 {
+  0% { opacity: 0; transform: translateX(14px) }
+  75.8% { opacity: 0; transform: translateX(14px) }
+  77% { opacity: 1; transform: translateX(0px) }
+  97.6% { opacity: 1; transform: translateX(0px) }
+  99.2% { opacity: 0; transform: translateX(0px) }
+  100% { opacity: 0; transform: translateX(0px) }
+}
+@keyframes a5 {
+  0% { opacity: 0; transform: translateX(14px) }
+  89.2% { opacity: 0; transform: translateX(14px) }
+  90.4% { opacity: 1; transform: translateX(0px) }
+  97.6% { opacity: 1; transform: translateX(0px) }
+  99.2% { opacity: 0; transform: translateX(0px) }
+  100% { opacity: 0; transform: translateX(0px) }
+}
+@keyframes cintro {
+  0% { opacity: 0 }
+  0.8% { opacity: 0 }
+  1.4% { opacity: 1 }
+  7% { opacity: 1 }
+  7.6% { opacity: 0 }
+  100% { opacity: 0 }
+}
+@keyframes c0 {
+  0% { opacity: 0 }
+  7.6% { opacity: 0 }
+  8.2% { opacity: 1 }
+  19.3% { opacity: 1 }
+  19.9% { opacity: 0 }
+  100% { opacity: 0 }
+}
+@keyframes c1 {
+  0% { opacity: 0 }
+  19.9% { opacity: 0 }
+  20.5% { opacity: 1 }
+  30.5% { opacity: 1 }
+  31.1% { opacity: 0 }
+  100% { opacity: 0 }
+}
+@keyframes c2 {
+  0% { opacity: 0 }
+  31.1% { opacity: 0 }
+  31.7% { opacity: 1 }
+  40.1% { opacity: 1 }
+  40.7% { opacity: 0 }
+  100% { opacity: 0 }
+}
+@keyframes c3 {
+  0% { opacity: 0 }
+  40.7% { opacity: 0 }
+  41.3% { opacity: 1 }
+  52.2% { opacity: 1 }
+  52.8% { opacity: 0 }
+  100% { opacity: 0 }
+}
+@keyframes c4 {
+  0% { opacity: 0 }
+  52.8% { opacity: 0 }
+  53.4% { opacity: 1 }
+  63.4% { opacity: 1 }
+  64% { opacity: 0 }
+  100% { opacity: 0 }
+}
+@keyframes c5 {
+  0% { opacity: 0 }
+  64% { opacity: 0 }
+  64.6% { opacity: 1 }
+  74.6% { opacity: 1 }
+  75.2% { opacity: 0 }
+  100% { opacity: 0 }
+}
+@keyframes c6 {
+  0% { opacity: 0 }
+  75.2% { opacity: 0 }
+  75.8% { opacity: 1 }
+  88% { opacity: 1 }
+  88.6% { opacity: 0 }
+  100% { opacity: 0 }
+}
+@keyframes c7 {
+  0% { opacity: 0 }
+  88.6% { opacity: 0 }
+  89.2% { opacity: 1 }
+  91.4% { opacity: 1 }
+  92% { opacity: 0 }
+  100% { opacity: 0 }
+}
+@keyframes cend {
+  0% { opacity: 0 }
+  92% { opacity: 0 }
+  92.6% { opacity: 1 }
+  98.6% { opacity: 1 }
+  99.2% { opacity: 0 }
+  100% { opacity: 0 }
+}
+</style>
+  <rect x="8" y="8" width="784" height="196" rx="16" fill="#111a2b" stroke="#2a3a52" stroke-width="1.5"/>
+
+  <line x1="120" y1="54" x2="120" y2="98" stroke="#2dd4bf" stroke-width="2"/>
+  <rect x="60" y="24" width="120" height="30" rx="8" fill="#0d1f26" stroke="#2dd4bf" stroke-width="2"/>
+  <text class="label" x="120" y="43.5" fill="#5eead4">POINTS</text>
+  <path d="M40 110 L330 110" stroke="#1e2b3f" stroke-width="12" stroke-linecap="round" fill="none"/>
+  <path d="M150 110 C 205 110, 245 70, 330 68" stroke="#1e2b3f" stroke-width="12" stroke-linecap="round" fill="none"/>
+  <line class="blade" x1="100" y1="110" x2="168" y2="110" stroke="#5eead4" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="100" cy="110" r="4" fill="#0d1f26" stroke="#2dd4bf" stroke-width="2"/>
+  <text class="status pt0" x="128" y="80" fill="#5eead4">P101</text>
+  <text class="status pt1" x="128" y="80" fill="#5eead4">P101</text>
+  <text class="status pt2" x="128" y="80" fill="#5eead4">P102</text>
+  <text class="status pt3" x="128" y="80" fill="#5eead4">P101</text>
+  <text class="status pt4" x="128" y="80" fill="#5eead4">P103</text>
+  <text class="status pt5" x="128" y="80" fill="#5eead4">P104</text>
+  <text class="status pt6" x="128" y="80" fill="#5eead4">P105</text>
+  <text class="status pt7" x="128" y="80" fill="#5eead4">P102</text>
+
+  <line x1="437" y1="54" x2="437" y2="74" stroke="#fbbf24" stroke-width="2"/>
+  <rect x="352" y="24" width="170" height="30" rx="8" fill="#241d0b" stroke="#fbbf24" stroke-width="2"/>
+  <text class="label" x="437" y="43.5" fill="#fcd34d">MONITORING UNIT</text>
+  <rect x="352" y="78" width="160" height="14" rx="7" fill="#1e2b3f"/>
+  <rect class="gauge g0" x="352" y="78" width="64" height="14" rx="7" fill="#2dd4bf"/>
+  <rect class="gauge g1" x="352" y="78" width="90" height="14" rx="7" fill="#fbbf24"/>
+  <rect class="gauge g2" x="352" y="78" width="94" height="14" rx="7" fill="#fbbf24"/>
+  <rect class="gauge g3" x="352" y="78" width="66" height="14" rx="7" fill="#2dd4bf"/>
+  <rect class="gauge g4" x="352" y="78" width="88" height="14" rx="7" fill="#fbbf24"/>
+  <rect class="gauge g5" x="352" y="78" width="92" height="14" rx="7" fill="#fbbf24"/>
+  <rect class="gauge g6" x="352" y="78" width="96" height="14" rx="7" fill="#fbbf24"/>
+  <rect class="gauge g7" x="352" y="78" width="144" height="14" rx="7" fill="#fb7185"/>
+  <line x1="432" y1="73" x2="432" y2="97" stroke="#fbbf24" stroke-width="1.5" stroke-dasharray="3 2"/>
+  <text class="tick" x="432" y="110" fill="#fbbf24">4 s</text>
+  <line x1="472" y1="73" x2="472" y2="97" stroke="#fb7185" stroke-width="1.5" stroke-dasharray="3 2"/>
+  <text class="tick" x="472" y="110" fill="#fb7185">6 s</text>
+  <text class="result r0" x="352" y="142" fill="#5eead4">3.2 s · ok</text>
+  <text class="result r1" x="352" y="142" fill="#fcd34d">4.5 s · slow</text>
+  <text class="result r2" x="352" y="142" fill="#fcd34d">4.7 s · slow</text>
+  <text class="result r3" x="352" y="142" fill="#5eead4">3.3 s · ok</text>
+  <text class="result r4" x="352" y="142" fill="#fcd34d">4.4 s · slow</text>
+  <text class="result r5" x="352" y="142" fill="#fcd34d">4.6 s · slow</text>
+  <text class="result r6" x="352" y="142" fill="#fcd34d">4.8 s · slow</text>
+  <text class="result r7" x="352" y="142" fill="#fda4af">7.2 s · too slow</text>
+
+  <rect x="588" y="24" width="188" height="30" rx="8" fill="#1a1530" stroke="#c084fc" stroke-width="2"/>
+  <text class="label" x="682" y="43.5" fill="#d8b4fe">MAINTENANCE DESK</text>
+  <g class="a0"><rect x="600.75" y="66.75" width="70.5" height="15.5" rx="7.75" fill="none" stroke="#fbbf24" stroke-width="1.5"/><text class="pill" x="636" y="78.5" fill="#fcd34d">WARNING</text><text class="desk" x="684" y="79">points P101</text></g>
+  <g class="a1"><rect x="600.75" y="87.75" width="70.5" height="15.5" rx="7.75" fill="none" stroke="#fbbf24" stroke-width="1.5"/><text class="pill" x="636" y="99.5" fill="#fcd34d">WARNING</text><text class="desk" x="684" y="100">points P102</text></g>
+  <g class="a2"><rect x="600.75" y="108.75" width="70.5" height="15.5" rx="7.75" fill="none" stroke="#fbbf24" stroke-width="1.5"/><text class="pill" x="636" y="120.5" fill="#fcd34d">WARNING</text><text class="desk" x="684" y="121">points P103</text></g>
+  <g class="a3"><rect x="600.75" y="129.75" width="70.5" height="15.5" rx="7.75" fill="none" stroke="#fbbf24" stroke-width="1.5"/><text class="pill" x="636" y="141.5" fill="#fcd34d">WARNING</text><text class="desk" x="684" y="142">points P104</text></g>
+  <g class="a4"><rect x="600" y="150" width="72" height="17" rx="8.5" fill="#fb7185"/><text class="pill" x="636" y="162.5" fill="#0b1624">ALARM</text><text class="desk" x="684" y="163">points P105</text></g>
+  <g class="a5"><rect x="600" y="171" width="72" height="17" rx="8.5" fill="#fb7185"/><text class="pill" x="636" y="183.5" fill="#0b1624">ALARM</text><text class="desk" x="684" y="184">points P102</text></g>
+
+  <g class="cintro"><text class="line1" x="40" y="156">monitor_app replays eight throws</text><text class="line2" x="40" y="176">from the stand-in monitoring unit</text></g>
+  <g class="c0"><text class="line1" x="40" y="156">Points P101 moved in 3.2 s</text><text class="line2" x="40" y="176">ok: no alert</text></g>
+  <g class="c1"><text class="line1" x="40" y="156">Points P101 moved in 4.5 s</text><text class="line2" x="40" y="176">slow → WARNING for P101</text></g>
+  <g class="c2"><text class="line1" x="40" y="156">Points P102 moved in 4.7 s</text><text class="line2" x="40" y="176">slow → WARNING for P102</text></g>
+  <g class="c3"><text class="line1" x="40" y="156">Points P101 moved in 3.3 s</text><text class="line2" x="40" y="176">ok: no alert</text></g>
+  <g class="c4"><text class="line1" x="40" y="156">Points P103 moved in 4.4 s</text><text class="line2" x="40" y="176">slow → WARNING for P103</text></g>
+  <g class="c5"><text class="line1" x="40" y="156">Points P104 moved in 4.6 s</text><text class="line2" x="40" y="176">slow → WARNING for P104</text></g>
+  <g class="c6"><text class="line1" x="40" y="156">Points P105 moved in 4.8 s</text><text class="line2" x="40" y="176">slow → ALARM for P105</text></g>
+  <g class="c7"><text class="line1" x="40" y="156">Points P102 moved in 7.2 s</text><text class="line2" x="40" y="176">too slow → ALARM for P102</text></g>
+  <g class="cend"><text class="line1" x="40" y="156">No throw left:</text><text class="line2" x="40" y="176">the monitor stops</text></g>
+</svg>
