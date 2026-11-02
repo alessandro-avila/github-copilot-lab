@@ -1,16 +1,16 @@
 ---
 name: 'C standards'
 description: 'Rules for changing the legacy C modules and their tests'
-applyTo: 'legacy-c/**/*.c,legacy-c/**/*.h,point-monitor/**/*.c,point-monitor/**/*.h'
+applyTo: '**/*.c,**/*.h'
 ---
 
 # C standards
 
-These rules load only when Copilot works on a C file in `legacy-c/` or `point-monitor/`.
+Copilot loads these rules for all `.c` and `.h` files in the repository.
 
 ## Production code
 
-Production code is every `.c` and `.h` file directly in `legacy-c/` or `point-monitor/`.
+Production code is every `.c` and `.h` file.
 
 - Keep current behaviour unless the user asks for a change.
 - Add no new globals or `static` state.

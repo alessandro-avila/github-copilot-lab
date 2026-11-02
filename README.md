@@ -157,7 +157,7 @@ A point machine moves a set of points; one movement is a throw. A monitoring uni
 
 | Step | You run | What happens |
 | ---- | ------- | ------------ |
-| 1. Reverse engineer | Ask mode, then `/rail-spec` | Copilot explains the monitor, draws a flowchart, then writes what it does today as a spec and flags anything odd |
+| 1. Reverse engineer | `/rail-spec` | Copilot explains the monitor step by step and draws a flowchart, then writes what it does today as a spec and flags anything odd |
 | 2. Review | The **Code reviewer** agent | You sort its findings into defect, question or style, and decide every flag. The agent points out problems and never edits |
 | 3. Test | `/rail-tests` | Copilot writes one test per scenario, then builds and runs them. They pass on the unchanged code |
 | Stretch | Your own prompt | You fix one defect test first: spec, then test, then code |

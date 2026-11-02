@@ -7,7 +7,7 @@ You work out what a legacy C monitor for railway points does today, review it ag
 | Time | 55 minutes, in pairs |
 | Code | [point-monitor/](../../point-monitor/README.md): `grade` (easy, a worked example) and `monitor` (the exercise) |
 | Rules | [What maintenance expects](../../point-monitor/README.md#what-maintenance-expects) and [how to write a spec you can test](../../point-monitor/specs/README.md) |
-| Copilot | Ask and Agent mode, the skills `/rail-spec` and `/rail-tests`, the **Code reviewer** custom agent, the C and spec instructions |
+| Copilot | Agent mode, the skills `/rail-spec` and `/rail-tests`, the **Code reviewer** custom agent, the C and spec instructions |
 
 ## The story
 
@@ -49,14 +49,8 @@ You start a skill by typing `/` and its name in VS Code or Copilot CLI, for exam
 
 ## Step 1: reverse engineer the monitor (15 minutes)
 
-1. Ask Copilot, in Ask mode:
-
-   ```
-   Explain step by step what monitor_step() in point-monitor/monitor.c does, and draw a Mermaid flowchart of one step. Do not change any file.
-   ```
-
+1. In Agent mode, run `/rail-spec point-monitor/monitor.c`, or just `/rail-spec`: the monitor is the default. Copilot first explains step by step what `monitor_step()` does and draws a Mermaid flowchart of one step, in the chat. Then it writes `point-monitor/specs/monitor.spec.md` as a draft.
 2. Compare the explanation with the output of `monitor_app`. Which alert surprises you?
-3. Switch to Agent mode and run `/rail-spec point-monitor/monitor.c`. Copilot writes `point-monitor/specs/monitor.spec.md` as a draft.
 
 ## Step 2: review the code (10 minutes)
 
