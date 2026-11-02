@@ -168,7 +168,7 @@ Full steps, hints and the reference solution: [Challenge 3](challenges/03-point-
 
 ## Customisation tour (presenter script)
 
-Five customization primitives.
+Six steps, five kinds of customization.
 
 | # | Primitive | Lives in | Invoked |
 | - | --------- | -------- | ------- |
@@ -182,8 +182,8 @@ Five customization primitives.
 ### Pre-flight
 
 - Open this folder as the workspace root
-- Chat view → **Agent** mode
-- **MCP: List Servers** → `microsoft-learn` running (no auth needed)
+- New chat → **Copilot** harness in Session Target (the default) → **Agent**
+- **Chat: Open Customizations** > **MCP Servers** → `microsoft-learn` listed, from `.mcp.json` (no auth needed)
 - `docs/adr/` empty except `.gitkeep`
 
 ---
@@ -269,7 +269,7 @@ pwsh .github/skills/adr-writer/scripts/new-adr.ps1 -Title "Adopt OpenTelemetry"
 Using the Microsoft Learn MCP server, find the current guidance on Azure Container Apps scaling rules and summarise the options in a table.
 ```
 
-**Look for:** tool-call disclosures. Expand one. Then **Configure Tools**.
+**Look for:** tool-call disclosures. Expand one. Then show the tools in **Chat: Open Customizations** > **Tools**; in a Local harness session, use **Configure Tools** in the chat input.
 
 **Two files, not interchangeable:**
 
@@ -282,7 +282,8 @@ Using the Microsoft Learn MCP server, find the current guidance on Azure Contain
 
 **The punchline:** VS Code forwards `.vscode/mcp.json` to the Agent Host *except*
 `${input:}` servers — it can't show the prompt. So they work in VS Code and vanish
-in the CLI. That is why both files exist.
+in the CLI. That is why both files exist. This repository keeps its servers in
+`.mcp.json`; `.vscode/mcp.json` only shows the `${input:}` pattern, commented out.
 
 **Expect:** *"where did all those other servers come from?"* Five sources merge with
 no de-duplication — extensions, user profile, plugins, `~/.copilot/mcp-config.json`,
@@ -294,6 +295,9 @@ workspace. See the [cheatsheet](docs/CHEATSHEET.md).
 
 `plugins/copilot-lab-plugin/` is there to **read**, not load. Repo plugin folders
 are never auto-discovered; real installs land in `~/.copilot/installed-plugins/`.
+To try it for one Copilot CLI session without installing it, run
+`copilot --plugin-dir ./plugins/copilot-lab-plugin`. Installing from a path or a
+repository still works, but is deprecated: marketplace installs are the way forward.
 
 Portable: `skills/`, `mcp.json`. Copilot-only: `com.github.copilot/agents/`.
 
@@ -337,7 +341,7 @@ fits. Most teams need row 1 only.
 | - | ------- | --- | ----------- |
 | `copilot-instructions.md` | yes | yes | yes |
 | `*.instructions.md` | yes | yes | yes |
-| Prompt files | local agents only | — | — |
+| Prompt files | Local harness only | — | — |
 | Skills | yes | yes | yes |
 | MCP | both files | `.mcp.json` | `.mcp.json` |
 | Plugins | yes | yes | yes |
@@ -353,3 +357,4 @@ Skills and MCP are the portable core. Invest there first.
 - [Challenge 1: specs you can test](challenges/01-legacy-c-testable/README.md)
 - [Challenge 2: better implementation tickets](challenges/02-better-tickets/README.md)
 - [Challenge 3: reverse engineer, review and test](challenges/03-point-monitor/README.md)
+- [Licence](LICENSE) — MIT
