@@ -1,16 +1,16 @@
 ---
 name: 'C standards'
 description: 'Rules for changing the legacy C modules and their tests'
-applyTo: 'legacy-c/**/*.c,legacy-c/**/*.h'
+applyTo: '**/*.c,**/*.h'
 ---
 
 # C standards
 
-These rules load only when Copilot works on a C file in `legacy-c/`.
+Copilot loads these rules for all `.c` and `.h` files in the repository.
 
 ## Production code
 
-Production code is every `.c` and `.h` file directly in `legacy-c/`.
+Production code is every `.c` and `.h` file.
 
 - Keep current behaviour unless the user asks for a change.
 - Add no new globals or `static` state.
@@ -18,11 +18,12 @@ Production code is every `.c` and `.h` file directly in `legacy-c/`.
 
 ## Tests
 
-- Use the harness in `legacy-c/tests/test.h`. Sorter tests use the provided fake hardware in `legacy-c/tests/fake_hw.h`. No test framework, no downloads.
+- Use the harness in the folder's `tests/test.h`. Sorter tests use the provided fake hardware in `legacy-c/tests/fake_hw.h`; monitor tests use the provided fake monitoring unit in `point-monitor/tests/fake_mu.h`. No test framework, no downloads.
 - Never change production code to make a test pass. Flag odd behaviour in the spec instead of fixing it.
 - Write one test per spec scenario, with the scenario number in the comment above it.
 
 ## Related
 
 - [Legacy C sorter](../../legacy-c/README.md)
+- [Point machine monitor](../../point-monitor/README.md)
 - [How to write a spec you can test](../../legacy-c/specs/README.md)

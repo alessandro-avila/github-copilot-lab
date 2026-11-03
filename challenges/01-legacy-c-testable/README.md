@@ -7,7 +7,7 @@ You describe what legacy C code does today in clean, readable Given/When/Then sp
 | Time | 45–60 minutes, in pairs |
 | Code | [legacy-c/](../../legacy-c/README.md): `checksum` (easy), `route` (medium), `sorter` (hard) |
 | Spec rules | [How to write a spec you can test](../../legacy-c/specs/README.md): read it first |
-| Copilot | Agent mode, the prompt files `/spec-from-code` and `/tests-from-spec`, the spec and C instructions, and the **Spec reviewer** agent |
+| Copilot | Agent mode, the skills `/spec-from-code` and `/tests-from-spec`, the spec and C instructions, and the **Spec reviewer** agent |
 
 ## How the sorter works
 
@@ -25,7 +25,7 @@ The animation shows a run before 18:00. From 18:00, the sorter puts every parcel
 | Visual Studio 2026 | With the **Desktop development with C++** workload: **File > Open > Folder** on the repository root, accept CMake and set `"sourceDirectory": "legacy-c"` in the file it opens. If you said no, open **Project > CMake Workspace Settings** and set `enableCMake` to `true` and `sourceDirectory` to `legacy-c`. Run the tests from **Test Explorer** |
 | Command line | See [Build and run](../../legacy-c/README.md#build-and-run) |
 
-Open the repository root, so Copilot finds `.github/`. Visual Studio needs custom instructions switched on: see [Before you start](../README.md#before-you-start). You run a prompt file by typing `/` and its name; in Visual Studio versions before 2026, type `#prompt:` and pick it.
+Open the repository root, so Copilot finds `.github/`. Visual Studio needs custom instructions switched on: see [Before you start](../README.md#before-you-start). You run a skill by typing `/` and its name; for Visual Studio, see the same section.
 
 ## The method
 

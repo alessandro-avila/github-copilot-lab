@@ -6,7 +6,7 @@ You turn a vague business request into a ticket a developer can start on: Copilo
 | ---- | ------- |
 | Time | 45–60 minutes, in pairs: one of you plays the product owner, the other the developer |
 | Input | Three [business requests](business-requests/): an e-mail, meeting notes and a one-liner |
-| Copilot | Agent mode, the prompt file [`/refine-ticket`](../../.github/prompts/refine-ticket.prompt.md), repository search, optionally a Jira MCP server |
+| Copilot | Agent mode, the skill [`/refine-ticket`](../../.github/skills/refine-ticket/SKILL.md), repository search, optionally a Jira MCP server |
 
 ## What you need
 
@@ -16,7 +16,7 @@ You turn a vague business request into a ticket a developer can start on: Copilo
 | Template | [ticket-template.md](ticket-template.md): the Definition of Ready on one screen |
 | Jira | Optional. Without it, you copy the finished ticket into Jira by hand |
 
-The prompts below use VS Code syntax. Visual Studio 2026 uses the same `/` commands; in older versions, type `#prompt:` and pick the prompt instead.
+The prompts below use VS Code syntax. In Visual Studio 2026, version 18.5 or later, ask for the `refine-ticket` skill by name in agent mode; if it does not load, attach its `SKILL.md` with `#`.
 
 ## Steps
 

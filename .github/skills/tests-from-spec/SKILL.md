@@ -1,10 +1,9 @@
 ---
-name: 'tests-from-spec'
+name: tests-from-spec
 description: 'Write one test per scenario of a reviewed legacy C spec, then build and run them'
+disable-model-invocation: true
 argument-hint: 'the spec to test, e.g. legacy-c/specs/route.spec.md'
-agent: 'agent'
 ---
-
 # Tests from spec
 
 Turn every scenario in a reviewed spec into one test, so that the tests pin down what the code does today.
@@ -13,9 +12,9 @@ Use the spec the user named or attached. If there is none, ask which spec in `le
 
 ## Steps
 
-1. Read the spec, the module it describes, [test.h](../../legacy-c/tests/test.h) and the worked example [test_checksum.c](../../legacy-c/tests/test_checksum.c).
+1. Read the spec, the module it describes, [test.h](../../../legacy-c/tests/test.h) and the worked example [test_checksum.c](../../../legacy-c/tests/test_checksum.c).
 2. Write `legacy-c/tests/test_<module>.c`: one `static void` test per scenario, named after the scenario, with the scenario number in the comment above it. `CMakeLists.txt` picks up `test_route.c` and `test_sorter.c` by name, so do not edit it.
-3. For the sorter, use the provided fake hardware in [fake_hw.h](../../legacy-c/tests/fake_hw.h). Start every test with `fake_hw_reset()` and `sorter_init()`: that is the spec's Background.
+3. For the sorter, use the provided fake hardware in [fake_hw.h](../../../legacy-c/tests/fake_hw.h). Start every test with `fake_hw_reset()` and `sorter_init()`: that is the spec's Background.
 4. Build and run the tests with the commands below.
 5. If a test fails, the test or the spec is wrong, not the code. Fix the test to match what the code does, and tell the user which scenario needs correcting.
 
@@ -46,5 +45,5 @@ Reporting a table of scenario, test function and result (pass or fail). Then lis
 
 ## Related
 
-- [How to write a spec you can test](../../legacy-c/specs/README.md)
-- [Spec from code](spec-from-code.prompt.md), the step before
+- [How to write a spec you can test](../../../legacy-c/specs/README.md)
+- [Spec from code](../spec-from-code/SKILL.md), the step before

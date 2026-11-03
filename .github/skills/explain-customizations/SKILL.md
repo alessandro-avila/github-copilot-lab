@@ -1,10 +1,8 @@
 ---
-name: 'explain-customizations'
+name: explain-customizations
 description: 'Audit this repository and explain every Copilot customization it contains'
-agent: 'agent'
-tools: ['search', 'edit/editFiles']
+disable-model-invocation: true
 ---
-
 # Explain the customizations in this repository
 
 You are helping someone who has just cloned this lab and wants to understand what

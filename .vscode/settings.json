@@ -1,8 +1,14 @@
 // Workspace settings for VS Code.
 //
-// CMake Tools looks for CMakeLists.txt in the repository root. The C challenge
-// keeps its build in legacy-c/, so point CMake Tools there. Build output goes
-// to build/, which .gitignore excludes.
+// CMake Tools looks for CMakeLists.txt in the repository root. The C
+// challenges keep their builds in legacy-c/ (Challenge 1) and point-monitor/
+// (Challenge 3), so point CMake Tools at both and pick the active project in
+// the CMake view. Each project builds into its own build/ folder, which
+// .gitignore excludes.
 {
-  "cmake.sourceDirectory": "${workspaceFolder}/legacy-c"
+  "cmake.sourceDirectory": [
+    "${workspaceFolder}/legacy-c",
+    "${workspaceFolder}/point-monitor"
+  ],
+  "cmake.buildDirectory": "${sourceDirectory}/build"
 }

@@ -3,19 +3,12 @@
 // This file is JSONC — comments are allowed here. The sibling `.mcp.json` at the
 // repo root is strict JSON and is what Copilot CLI and the Copilot app read.
 //
-// Both servers below are HTTP and need no local install:
-//   microsoft-learn  no authentication at all
-//   github           OAuth, VS Code prompts you on first use
+// The demo's servers (microsoft-learn, github) live in `.mcp.json`, which the
+// Copilot harness reads directly, in VS Code too. This file only keeps the
+// `${input:}` secrets pattern below, for the Local harness: the Copilot harness
+// does not receive servers that need an input prompt.
 {
   "servers": {
-    "microsoft-learn": {
-      "type": "http",
-      "url": "https://learn.microsoft.com/api/mcp"
-    },
-    "github": {
-      "type": "http",
-      "url": "https://api.githubcopilot.com/mcp"
-    }
 
     // ── Secrets pattern ──────────────────────────────────────────────────
     // Left commented out on purpose so the demo has no live dependency.

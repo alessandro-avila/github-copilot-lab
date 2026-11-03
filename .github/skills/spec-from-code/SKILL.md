@@ -1,10 +1,9 @@
 ---
-name: 'spec-from-code'
+name: spec-from-code
 description: 'Describe what a legacy C module does today as a clean Given/When/Then spec'
+disable-model-invocation: true
 argument-hint: 'the module to describe, e.g. legacy-c/sorter.c'
-agent: 'agent'
 ---
-
 # Spec from code
 
 Write down what a module does **today** as a spec that a person can review and a test can check.
@@ -13,8 +12,8 @@ Use the file the user named or attached. If there is none, ask which module in `
 
 ## Steps
 
-1. Read [How to write a spec you can test](../../legacy-c/specs/README.md) and the two model specs, [checksum.spec.md](../../legacy-c/specs/checksum.spec.md) and [route.spec.md](../../legacy-c/specs/route.spec.md).
-2. Read the module's `.c` and `.h` files and the functions it calls in `legacy-c/`. For the sorter, read [fake_hw.h](../../legacy-c/tests/fake_hw.h) too: it shows what a test can set and check.
+1. Read [How to write a spec you can test](../../../legacy-c/specs/README.md) and the two model specs, [checksum.spec.md](../../../legacy-c/specs/checksum.spec.md) and [route.spec.md](../../../legacy-c/specs/route.spec.md).
+2. Read the module's `.c` and `.h` files and the functions it calls in `legacy-c/`. For the sorter, read [fake_hw.h](../../../legacy-c/tests/fake_hw.h) too: it shows what a test can set and check.
 3. Write `legacy-c/specs/<module>.spec.md` in the same shape and by the same rules. Set the status to "draft".
 4. Tag odd behaviour `@flagged`, give it a row in the Flagged table, and leave the Decision column empty for the reviewer.
 
@@ -31,5 +30,5 @@ Showing a table of the scenarios (number, title, flagged or not), then asking th
 
 ## Related
 
-- [How to write a spec you can test](../../legacy-c/specs/README.md)
-- [Tests from spec](tests-from-spec.prompt.md), the next step
+- [How to write a spec you can test](../../../legacy-c/specs/README.md)
+- [Tests from spec](../tests-from-spec/SKILL.md), the next step
